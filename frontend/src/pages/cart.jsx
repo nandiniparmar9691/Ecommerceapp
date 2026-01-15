@@ -1,31 +1,13 @@
-import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Cart() {
-  const [cart, setCart] = useState([]);
-  const userId = localStorage.getItem("userId");
-
-  useEffect(() => {
-    if (!userId) return;
-
-    fetch(`http://localhost:5000/api/cart/${userId}`)
-      .then((res) => res.json())
-      .then((data) => setCart(data))
-      .catch((err) => console.error(err));
-  }, [userId]);
-
   return (
     <>
-      <h2>Cart</h2>
-
-      {cart.length === 0 ? (
-        <p>Cart is empty</p>
-      ) : (
-        cart.map((item) => (
-          <div key={item._id}>
-            {item.title} - ₹{item.price}
-          </div>
-        ))
-      )}
+      <Navbar />
+      <div className="list">
+        <h2>Your Cart</h2>
+        {/* cart items */}
+      </div>
     </>
   );
 }

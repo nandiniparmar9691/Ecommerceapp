@@ -1,27 +1,53 @@
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
+
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async () => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
-    });
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-    const data = await res.json();
-    localStorage.setItem("userId", data.userId);
-    window.location.href = "/home";
+    // 🔹 Example login check (replace with API)
+    if (email && password) {
+      localStorage.setItem("userId", "123"); // demo userId
+      navigate("/home"); // ✅ redirect to home
+    }
   };
 
   return (
-    <>
-      <h2>Login</h2>
-      <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-      <button onClick={login}>Login</button>
-    </>
+    <div className="page">
+      <div className="card">
+        <h2>Login</h2>
+
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit">Login</button>
+        </form>
+
+        {/* 🔗 Link to Register */}
+        <p style={{ textAlign: "center", marginTop: "10px" }}>
+          Don't have an account?{" "}
+          <Link to="/register">Register</Link>
+        </p>
+      </div>
+    </div>
   );
 }

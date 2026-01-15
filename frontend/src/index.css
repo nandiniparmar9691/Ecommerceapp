@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: #f5f6fa;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +13,113 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Links */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #4a90e2;
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: #357abd;
 }
 
+/* Body FIX (important) */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #f5f6fa;
 }
 
+/* Headings */
 h1 {
-  font-size: 3.2em;
+  font-size: 2.5em;
   line-height: 1.1;
 }
 
+/* Buttons (Global) */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+  padding: 10px 16px;
+  font-size: 15px;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #4a90e2;
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
+button:hover {
+  background-color: #357abd;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: #4a90e2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fff;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ========================= */
+/* PAGE WRAPPER */
+/* ========================= */
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+/* ========================= */
+/* DARK MODE SUPPORT */
+/* ========================= */
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
   }
-  a:hover {
-    color: #747bff;
+
+  body {
+    background: #242424;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .navbar {
+    background: #1f1f1f;
+  }
+
+  .nav-links a {
+    color: #fff;
   }
 }

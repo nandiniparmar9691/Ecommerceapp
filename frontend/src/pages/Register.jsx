@@ -1,25 +1,47 @@
-
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Register() {
-  const [form, setForm] = useState({});
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const register = async () => {
-    await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form)
-    });
-    window.location.href = "/";
+  const handleRegister = (e) => {
+    e.preventDefault();
+    navigate("/"); // redirect to login
   };
 
   return (
-    <>
-      <h2>Register</h2>
-      <input placeholder="Name" onChange={e => setForm({ ...form, name: e.target.value })} />
-      <input placeholder="Email" onChange={e => setForm({ ...form, email: e.target.value })} />
-      <input placeholder="Password" onChange={e => setForm({ ...form, password: e.target.value })} />
-      <button onClick={register}>Register</button>
-    </>
+    <div className="page">
+      <div className="card">
+        <h2>Register</h2>
+
+        <form onSubmit={handleRegister}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit">Register</button>
+        </form>
+
+        {/* 🔗 Link to Login */}
+        <p style={{ textAlign: "center", marginTop: "10px" }}>
+          Already have an account?{" "}
+          <Link to="/">Login</Link>
+        </p>
+      </div>
+    </div>
   );
 }
