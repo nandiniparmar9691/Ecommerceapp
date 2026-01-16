@@ -1,7 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
-
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ export default function Login() {
     // 🔹 Example login check (replace with API)
     if (email && password) {
       localStorage.setItem("userId", "123"); // demo userId
-      navigate("/home"); // ✅ redirect to home
+      navigate("/"); // ✅ redirect to Home
     }
   };
 
