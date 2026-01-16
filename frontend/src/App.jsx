@@ -8,6 +8,7 @@ import "./App.css";
 export default function App() {
   return (
     <HashRouter>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login />} />
