@@ -3,5 +3,8 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/ecommerceapp/"
+  base: "/Ecommerceapp/",
+  build: {
+    outDir: "docs"
+  }
 });
