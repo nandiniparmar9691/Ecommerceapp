@@ -1,20 +1,18 @@
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Cart from "./pages/Cart";
+import Cart from "./pages/Cart"; 
 import "./App.css";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/Ecommerceapp/">
+    <BrowserRouter basename="/Ecommerceapp">
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );
