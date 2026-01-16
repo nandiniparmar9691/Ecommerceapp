@@ -1,27 +1,27 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
 
-    // 🔹 Example login check (replace with API)
     if (email && password) {
-      localStorage.setItem("userId", "123"); // demo userId
-      navigate("/"); // ✅ redirect to Home
+      // Here, you could save user info. For demo, just set userId.
+      localStorage.setItem("userId", "123");
+      navigate("/home"); // Redirect after successful registration
     }
   };
 
   return (
     <div className="page">
       <div className="card">
-        <h2>Login</h2>
+        <h2>Register</h2>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleRegister}>
           <input
             type="email"
             placeholder="Email"
@@ -38,15 +38,14 @@ export default function Login() {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
         </form>
 
-        {/* 🔗 Link to Register */}
         <p style={{ textAlign: "center", marginTop: "10px" }}>
-          Don't have an account?{" "}
-          <Link to="/register">Register</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
   );
 }
+
