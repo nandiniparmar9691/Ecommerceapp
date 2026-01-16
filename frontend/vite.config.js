@@ -6,5 +6,5 @@ export default defineConfig({
   base: "/Ecommerceapp/",
   build: {
     outDir: "docs",
-  }
+  },
 });
