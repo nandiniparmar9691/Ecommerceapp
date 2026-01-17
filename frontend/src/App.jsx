@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart"; 
 import "./App.css";
+import Navbar from "./components/Navbar"
 
 export default function App() {
   return (
