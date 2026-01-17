@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/Ecommerceapp/",
   build: {
-    outDir: "../docs",   
-    emptyOutDir: true,
+    outDir: "docs",   
   },
 });
